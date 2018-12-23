@@ -13,13 +13,8 @@ class Comment extends Model
         return $this->belongsTo('App\Photo');
     }
 
-    public function author()
+    public function user()
     {
-        return $this->belongsTo('App\User');
-    }
-
-    public function commentable()
-    {
-        return $this->morphTo();
+        return $this->belongsTo('App\User', 'user_id');
     }
 }

@@ -14,7 +14,8 @@ class CreatePhotosTable extends Migration
     public function up()
     {
         Schema::create('photos', function (Blueprint $table) {
-            $table->increments('photo_id');
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->string('title', 60);
             $table->text('desc')->nullable();
             $table->string('category', 30);
@@ -22,6 +23,8 @@ class CreatePhotosTable extends Migration
             $table->string('file_name');
             $table->softDeletes();
             $table->timestamps();
+
+             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

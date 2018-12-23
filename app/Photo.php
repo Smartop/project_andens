@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Photo extends Model
 {
-    public function user()
+    protected $fillable = ['title', 'desc', 'camera'];
+
+    public function author()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     public function comments()
     {
-        return $this->morphMany(Comment::class, 'commentable');
+        return $this->hasMany(Comment::class);
     }
 }
