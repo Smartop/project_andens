@@ -22,6 +22,6 @@ Route::get('user/{nick}', 'PhotoController@index');
 
 Route::group(['middleware' => 'auth'], function() {
     
-    Route::post('addphoto', 'PhotoController@store');
+    Route::post('addphoto', 'PhotoController@store')->name('storeImage');
 });
 

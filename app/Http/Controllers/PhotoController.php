@@ -39,7 +39,16 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:60',
+            'desc' => 'nullable',
+            'category' => 'required|max:20',
+            'camera' => 'nullable',
+            'image' => 'required|mimes:jpg,jpeg,bmp,png'
+        ]);
+        $photo = Photo::add($request->all());
+        $photo->uploadImage($request->file('image'));
+        return redirect()->route('home');        
     }
 
     /**

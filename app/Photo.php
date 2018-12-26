@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class Photo extends Model
 {
@@ -19,13 +21,22 @@ class Photo extends Model
         return $this->hasMany(Comment::class);
     }
 
+        public static function add($fields)
+    {
+        $photo = new static;
+        $photo->fill($fields);
+        $photo->user_id = Auth::user()->id;
+
+        return $photo;
+    }
+
     public function uploadImage($image)
     {
         if($image == null) { return; }
         Storage::delete('uploads/' . $this->image);
-        $filename = str_random(10).'.'. $image->extension();
-        $image->storeAs('uploads', $filename);
-        $this->image = $filename;
+        $file_name = str_random(10).'.'. $image->extension();
+        $image->storeAs('img', $file_name);
+        $this->file_name = $file_name;
         $this->save();
     }
     public function getImage()
