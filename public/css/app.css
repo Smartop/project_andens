@@ -10494,6 +10494,12 @@ a.text-dark:focus {
   padding: 2vmin !important;
 }
 
+.userAvatar {
+  height: 10vmin;
+  width: 10vmin;
+  border-radius: 50%;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);

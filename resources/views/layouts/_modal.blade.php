@@ -3,10 +3,7 @@
         <div class="modal-content">
             @include('profile._form')
             <div class="row justify-content-end">
-
-                <button class="btn btn-danger" @click="$emit('close')">
-                    X
-                </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
             </div>
 
         </div>
