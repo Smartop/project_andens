@@ -44,11 +44,11 @@ class PhotoController extends Controller
             'desc' => 'nullable',
             'category' => 'required|max:20',
             'camera' => 'nullable',
-            'image' => 'required|mimes:jpg,jpeg,bmp,png'
+            'image' => 'required|mimes:jpeg,bmp,png'
         ]);
         $photo = Photo::add($request->all());
         $photo->uploadImage($request->file('image'));
-        return redirect()->route('home');        
+        return redirect()->back();        
     }
 
     /**

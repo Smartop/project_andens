@@ -1856,11 +1856,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
-  },
-  data: function data() {
-    return {
-      csrf: window.Laravel.csrfToken
-    };
   }
 });
 
@@ -36771,7 +36766,7 @@ var render = function() {
           _c(
             "button",
             {
-              staticClass: "modal-default-button",
+              staticClass: "modal-default-button btn btn-success",
               on: {
                 click: function($event) {
                   _vm.$emit("close")

@@ -46,7 +46,7 @@
           </div>
 
           <div class="modal-footer">
-              <button class="modal-default-button" @click="$emit('close')">
+              <button class="modal-default-button btn btn-success" @click="$emit('close')">
                 OK
               </button>
           </div>
@@ -59,11 +59,6 @@
     export default {
         mounted() {
             console.log('Component mounted.')
-        },
-        data: function(){
-          return {
-            csrf: window.Laravel.csrfToken
-          }
-      }
+        }
     }
 </script>
