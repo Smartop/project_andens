@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class PhotoController extends Controller
 {
@@ -12,9 +14,11 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($nick)
     {
-        //
+        $user = User::where('nickname', "$nick")->first();
+        $photos = Photo::paginate(10);
+        return view('profile.index', compact('user', 'photos'));
     }
 
     /**

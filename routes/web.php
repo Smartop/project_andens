@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('user/{nick}', 'PhotoController@index');
+
+Route::group(['middleware' => 'auth'], function() {
+    
+    Route::post('addphoto', 'PhotoController@store');
+});
+
