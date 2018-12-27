@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Photo;
-use Illuminate\Http\Request;
 use App\User;
+use App\Comment;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class PhotoController extends Controller
@@ -57,9 +58,12 @@ class PhotoController extends Controller
      * @param  \App\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo)
+    public function show(Photo $photo_id)
     {
-        //
+        $photo = Photo::find($photo_id)->first();
+        $id = $photo->id;   
+        $comments = Comment::where('photo_id', $id)->get();
+        return view('profile.photoView', compact('photo', 'comments'));
     }
 
     /**

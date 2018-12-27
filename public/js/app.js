@@ -48173,12 +48173,14 @@ Vue.component('modal-addimage', __webpack_require__(/*! ./components/Modal-AddIm
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    showModal: false
-  }
+/*
+const app = new Vue({
+    el: '#app',
+    data: {
+        showModal: false
+    }
 });
+*/
 
 /***/ }),
 

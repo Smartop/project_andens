@@ -26,7 +26,7 @@
             @endauth
 
         </div>
-        <div class="col-md-8 col-lg-10">
+        <div class="d-flex col-md-8 col-lg-10">
 
             @foreach ( $photos as $photo)
             <div class="col md-4">

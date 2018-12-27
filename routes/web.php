@@ -23,5 +23,7 @@ Route::get('user/{nick}', 'PhotoController@index');
 Route::group(['middleware' => 'auth'], function() {
     
     Route::post('addphoto', 'PhotoController@store')->name('storeImage');
+    Route::post('publishComment', 'CommentController@publish');
+    Route::get('/photo/{photo_id}', 'PhotoController@show');
 });
 
