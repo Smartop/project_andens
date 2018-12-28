@@ -30,7 +30,7 @@
                 <div class="p-2">
                     <h1>{{ $user->nickname }}</h1>
                 </div> --}}
-                <h4>{{ $comment->created_at }}</h4>
+                <h4>{{ $comment->created_at->diffForHumans() }}</h4>
                 <p>{{  $comment->body }}</p>
                 <h2>{{ $comment->user->nickname }}</h2>
             </div>  
