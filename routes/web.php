@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::post('addphoto', 'PhotoController@store')->name('storeImage');
     Route::post('publishComment', 'CommentController@publish');
+    Route::post('storeRating', 'RatingController@setRating');
     
 });
 

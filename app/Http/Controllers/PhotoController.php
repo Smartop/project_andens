@@ -18,7 +18,8 @@ class PhotoController extends Controller
     public function index($nick)
     {
         $user = User::where('nickname', "$nick")->first();
-        $photos = Photo::paginate(10);
+        $user_id = $user->id;
+        $photos = Photo::where('user_id', $user_id)->paginate(10);
         return view('profile.index', compact('user', 'photos'));
     }
 

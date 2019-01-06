@@ -81,32 +81,46 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/modal.js":
-/*!*******************************!*\
-  !*** ./resources/js/modal.js ***!
-  \*******************************/
+/***/ "./resources/js/ratingAjax.js":
+/*!************************************!*\
+  !*** ./resources/js/ratingAjax.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$('#show-modal').on('click', function () {
-  $('.modal-mask').css('display', 'table');
+$(document).ready(function () {
+  $('input[type=radio]').on('change', function () {
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      url: '/storeRating',
+      type: "POST",
+      data: $("#ratingForm").serialize(),
+      success: function success(data) {
+        alert(data);
+      }
+    });
+  });
 });
 
 /***/ }),
 
-/***/ 1:
-/*!*************************************!*\
-  !*** multi ./resources/js/modal.js ***!
-  \*************************************/
+/***/ 2:
+/*!******************************************!*\
+  !*** multi ./resources/js/ratingAjax.js ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/modal.js */"./resources/js/modal.js");
+module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/ratingAjax.js */"./resources/js/ratingAjax.js");
 
 
 /***/ })
