@@ -104,9 +104,7 @@ $(document).ready(function () {
       url: '/storeRating',
       type: "POST",
       data: $("#ratingForm").serialize(),
-      success: function success(data) {
-        alert(data);
-      }
+      success: alert("Successful rated")
     });
   });
 });
