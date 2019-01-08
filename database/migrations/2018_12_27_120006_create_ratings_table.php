@@ -17,7 +17,7 @@ class CreateRatingsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('photo_id')->unsigned();
-            $table->decimal('rating_value', 2, 1)->unsigned();
+            $table->tinyInteger('rating_value')->unsigned();
             $table->timestamps();
 
             $table->foreign('photo_id')->references('id')->on('photos')->onDelete('NO ACTION');

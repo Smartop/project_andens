@@ -23,6 +23,11 @@ class PhotoController extends Controller
         return view('profile.index', compact('user', 'photos'));
     }
 
+    public function galleryShow() 
+    {
+        $photos = Photo::orderBy('created_at')->paginate(5);
+        return view('gallery', compact('photos'));
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -20,6 +20,20 @@ class Photo extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    public function stars()
+    {
+        return $this->hasMany(Rating::class, 'photo_id', 'id');
+    }
+
+    public function getStarCountAttribute($photo_id)
+    {
+        $sum = $this->stars->sum('rating_value');
+        $count = $this->stars->count('rating_value');
+        if($count == 0) {
+            return 3;
+        }
+        return round($sum/$count, 1,1);
+    }
 
         public static function add($fields)
     {

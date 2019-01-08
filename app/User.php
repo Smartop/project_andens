@@ -33,6 +33,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
+        
+    public function stars()
+    {
+        return $this->hasMany(Rating::class);
+    }
 
     public function photos()
     {
