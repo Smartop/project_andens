@@ -118,7 +118,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/ratingAjax.js */"./resources/js/ratingAjax.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/project_andens/resources/js/ratingAjax.js */"./resources/js/ratingAjax.js");
 
 
 /***/ })

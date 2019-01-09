@@ -106,7 +106,7 @@ $('#show-modal').on('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/modal.js */"./resources/js/modal.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/project_andens/resources/js/modal.js */"./resources/js/modal.js");
 
 
 /***/ })

@@ -32,7 +32,7 @@ class Photo extends Model
         if($count == 0) {
             return 3;
         }
-        return round($sum/$count, 1,1);
+        return round($sum/$count, 1);
     }
 
         public static function add($fields)

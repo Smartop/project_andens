@@ -19,13 +19,13 @@ class PhotoController extends Controller
     {
         $user = User::where('nickname', "$nick")->first();
         $user_id = $user->id;
-        $photos = Photo::where('user_id', $user_id)->paginate(10);
+        $photos = Photo::where('user_id', $user_id)->paginate(5);
         return view('profile.index', compact('user', 'photos'));
     }
 
     public function galleryShow() 
     {
-        $photos = Photo::orderBy('created_at')->paginate(5);
+        $photos = Photo::orderBy('created_at')->paginate(3);
         return view('gallery', compact('photos'));
     }
     /**
