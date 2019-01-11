@@ -6,11 +6,13 @@
     <div class="row">
         <div class="col-8 align-content-center">
             <h2>{{ $photo->title }}</h2>
-            <img src="{!! asset('storage/img/'. $photo->file_name ) !!}" 
+            <img src="{!!  $photo->file_name  !!}"
+            {{--  asset('storage/img/'.   --}}
                 alt="{{ $photo->title }}" 
                 width="500px" height="auto">
             <h4>{{ $photo->desc }}</h4>
         </div>
+        @auth
         <h2>Rating: </h2>
         <form id="ratingForm" action="/storeRating" method="POST">
             @csrf
@@ -32,6 +34,7 @@
             </div>
             <input type="submit" value="OK">
         </form>
+        @endauth
     </div>
 </div>
 

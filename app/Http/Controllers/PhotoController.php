@@ -66,8 +66,8 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo_id)
     {
-        $photo = Photo::find($photo_id)->first();
-        $id = $photo->id;   
+        $photo = Photo::findOrFail($photo_id)->first();
+        $id = $photo->id;
         $comments = Comment::where('photo_id', $id)->get();
         return view('profile.photoView', compact('photo', 'comments'));
     }
