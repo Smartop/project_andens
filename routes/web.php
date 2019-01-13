@@ -25,5 +25,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('publishComment', 'CommentController@publish');
     Route::post('storeRating', 'RatingController@setRating');
     
+    Route::get('subscribe', 'SubscribeController@showSubscribe');
+    Route::post('subscribe', 'SubscribeController@subscription');
 });
 

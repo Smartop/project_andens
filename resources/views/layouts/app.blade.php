@@ -26,6 +26,7 @@
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/stripe_form.css') }}" rel="stylesheet">
 </head>
 <body>
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
