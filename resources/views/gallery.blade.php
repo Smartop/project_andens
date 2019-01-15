@@ -1,21 +1,22 @@
-@extends('layouts.app')
-
+@extends('layouts.main')
 @section('content')
-<h2>Latest photoes</h2>
-<div class="col-4">
+<section class="gallery no-frame">
     {{-- asset('storage/img/'. --}}
     <div class="infinite-scroll">
         @foreach ($photos as $photo)
-        <a href="/photo/{{ $photo->id }}">
-            <img src="{!! $photo->file_name  !!}" 
-                alt="{{ $photo->title }}" 
-                width="400px" height="200px">
-        </a>
-        <p>{{ $photo->star_count }}</p>
+        <div class="photo-block">
+            <a href="/photo/{{ $photo->id }}">
+                <img src="{!! $photo->file_name  !!}" 
+                alt="{{ $photo->title }}" width="400px" height="200px">
+            </a>
+            <div class="actions">
+                <p>{{ $photo->star_count }}</p>
+            </div>
+        </div>
         @endforeach
         {{ $photos->links() }}
     </div>
-</div>
+</section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.3.7/jquery.jscroll.min.js"></script>
 <script type="text/javascript">

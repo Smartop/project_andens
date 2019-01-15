@@ -30,7 +30,7 @@ class Photo extends Model
         $sum = $this->stars->sum('rating_value');
         $count = $this->stars->count('rating_value');
         if($count == 0) {
-            return 3;
+            return "No rating";
         }
         return round($sum/$count, 1);
     }

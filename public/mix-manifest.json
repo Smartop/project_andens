@@ -1,6 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/media-queries.css": "/css/media-queries.css",
     "/js/modal.js": "/js/modal.js",
     "/js/ratingAjax.js": "/js/ratingAjax.js"
 }

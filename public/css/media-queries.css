@@ -1,0 +1,165 @@
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .paralax-container {
+    background-image: url("/img/dawn.jpg");
+    width: calc(100vw - 20px);
+    height: 100vh;
+    max-width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .paralax-container nav {
+    background-color: rgba(0, 0, 255, 0.1);
+  }
+
+  .paralax-container .title {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
+
+  .paralax-container .title h1 {
+    font-size: 7vmin;
+  }
+
+  .paralax-container .title h4 {
+    font-size: 5vmin;
+  }
+
+  .gallery.no-frame {
+    width: 100vw;
+    height: auto;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .gallery.no-frame .infinite-scroll {
+    width: 100%;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block {
+    align-items: flex-start;
+    width: 33.3333333333%;
+    height: 33.3333333333%;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block a {
+    text-decoration: none;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block a img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block .actions {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block .actions p {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    color: white;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block:hover .actions p {
+    bottom: 0;
+    width: 15vw;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .photo-block {
+    align-items: flex-start;
+    width: 33.3333333333%;
+    height: 33.3333333333%;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .photo-block a {
+    text-decoration: none;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .photo-block a img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .photo-block .actions {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .photo-block .actions p {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    color: white;
+  }
+
+  .gallery.no-frame .infinite-scroll .jscroll-inner .photo-block:hover .actions p {
+    bottom: 0;
+    width: 15vw;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
