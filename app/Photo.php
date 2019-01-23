@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use App\Favorite;
+
 class Photo extends Model
 {
 
@@ -25,6 +27,11 @@ class Photo extends Model
         return $this->hasMany(Rating::class, 'photo_id', 'id');
     }
 
+    public function favorite() 
+    {
+        return $this->hasMany(Favorite::class);
+    }
+
     public function getStarCountAttribute($photo_id)
     {
         $sum = $this->stars->sum('rating_value');
@@ -32,7 +39,16 @@ class Photo extends Model
         if($count == 0) {
             return "No rating";
         }
-        return round($sum/$count, 1);
+        return round($sum/$count, 1,1);
+    }
+
+    public function getCommentCountAttribute($photo_id)
+    {
+        $count = $this->comments->count('id');
+        if($count == 0) {
+            return "No comments";
+        }
+        return $count;
     }
 
         public static function add($fields)
@@ -66,5 +82,19 @@ class Photo extends Model
         if($id == null) { return;}
         $this->category_id = $id;
         $this->save();
+    }
+    public function isFavorite($photo_id) 
+    {
+        $value = $this->favorite()->where('user_id', Auth::id() )->first();
+        //dd($value);
+        if ($value === null || $value->favor == 0)
+        {
+            return 0;
+        }
+        else 
+        {
+            return 1;
+        }
+        
     }
 }

@@ -13,6 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/modal.js') }}" defer></script>
     <script src="{{ asset('js/ratingAjax.js') }}" defer></script>
+    <script src="{{ asset('js/toggleFavoriteAjax.js') }}" defer></script>
 
     {{--  <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -81,8 +82,8 @@
             </div>
         </nav>
         <div class="title">
-            <h1>Welcome on Andens</h1>
-            <h4>Share your photo with our community</h4>
+            <h1 style="user-select:none;">Welcome on Andens</h1>
+            <h4 style="user-select:none;">Share your photo with our community</h4>
         </div>
     </div>
         @yield('content')

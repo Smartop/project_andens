@@ -10,7 +10,32 @@
                 alt="{{ $photo->title }}" width="400px" height="200px">
             </a>
             <div class="actions">
-                <p>{{ $photo->star_count }}</p>
+                <div>
+                    <p>{{ $photo->star_count }}</p>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div>
+                    <p>{{ $photo->comment_count }}</p>
+                    <a href="/photo/{{ $photo->id }}"><i class="fas fa-comment"></i></a>
+                </div>
+                <div class="favor">
+                    {{ $photo->isFavorite($photo->id) }}
+                    @if ( $photo->isFavorite($photo->id) == 0)
+                    <i class="icon far fa-bookmark"></i>
+                    <form action="/favorite" id="favorForm" method="POST">
+                    @csrf
+                        <input type="hidden" value="{{ $photo->id }}" name="photo_id">
+                        <input type="hidden" value="1" name="favor">
+                    </form>
+                    @else
+                    <i class="icon fas fa-bookmark"></i>
+                    <form action="/favorite" id="favorForm" method="POST">
+                    @csrf
+                        <input type="hidden" value="{{ $photo->id }}" name="photo_id">
+                        <input type="hidden" value="0" name="favor">
+                    </form>
+                    @endif
+                </div>
             </div>
         </div>
         @endforeach

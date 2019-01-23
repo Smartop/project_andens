@@ -20,12 +20,17 @@ class RatingController extends Controller
         // $rating->user_id = $request->input('user_id');
         // $rating->photo_id = $request->input('photo_id');
 
-$rating = Rating::updateOrCreate(
-    ['user_id' => $user_id, 'photo_id' => $request->input('photo_id')],
-    ['rating_value' => $request->input('rating'),
-    'user_id' => $user_id,
-    'photo_id' => $request->input('photo_id')]
-);
+    $rating = Rating::updateOrCreate(
+        [
+            'user_id' => $user_id, 
+            'photo_id' => $request->input('photo_id')
+        ],
+        [
+            'rating_value' => $request->input('rating'),
+            'user_id' => $user_id,
+            'photo_id' => $request->input('photo_id')
+        ]
+    );
 
         $rating->save();
         return redirect()->back();

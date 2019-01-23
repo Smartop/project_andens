@@ -6,6 +6,7 @@
             align-items: flex-start;
             width: $third;
             height: $third;
+            position: relative;
 
             a {
                 text-decoration: none;
@@ -15,43 +16,57 @@
                     height: 100%;
                 }
 
-                
             }
 
-            .actions{
-                position: relative;
+            .actions {
+                position: absolute;
+                display: flex;
+                justify-content: space-around;
+                align-content: center;
+                bottom: -15px;
+                left: 0;
+                right: 0;
+                opacity: 0;
                 width: 100%;
-                height: 100%;
-                p {
-                    position: absolute;
-                    bottom: -15px;
-                    left: 0;
-                    right: 0;
-                    opacity: 0;
-                    color: white;
-                }
 
-                
-            }
-            &:hover {
-                .actions{
+                div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    
                     p {
-                        // display: block;
-                        // position: relative;
-                        // overflow:hidden;
-                        bottom: 0;
-                        width: 15vw;
-                        opacity: 1;
-                        background-color: rgba($color: #000, $alpha: 0.5);
+                    color: white;
+                    margin-bottom: 0;
+                    padding-right: 5px;
+                    user-select: none;
+                    }
+                    i{
+                        color:white;
                     }
                 }
+                
+                .favor{
+                    cursor: pointer;
                 }
+
+            }
+
+            &:hover {
+                .actions {
+                    bottom: 0;
+                    padding-left: 1%;
+                    opacity: 1;
+                    background-color: rgba($color: #000, $alpha: 0.5);
+
+                }
+            }
         }
     }
 
     .paralax-container {
         background-image: url('/img/dawn.jpg');
-        width: calc(100vw - 20px);
+        width: 100%;
         height: 100vh;
         max-width: 100%;
         background-attachment: fixed;
@@ -60,22 +75,24 @@
         background-size: cover;
         display: flex;
         flex-direction: column;
-        
-        nav{
+
+        nav {
             background-color: rgba($color: rgba(0, 0, 255), $alpha: 0.1);
         }
 
-        .title{
+        .title {
             display: flex;
             flex-direction: column;
             height: 100%;
             justify-content: center;
             align-content: center;
             text-align: center;
-            h1{
+
+            h1 {
                 font-size: 7vmin;
             }
-            h4{
+
+            h4 {
                 font-size: 5vmin;
             }
         }
