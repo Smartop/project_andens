@@ -3,5 +3,6 @@
     "/css/app.css": "/css/app.css",
     "/css/media-queries.css": "/css/media-queries.css",
     "/js/modal.js": "/js/modal.js",
-    "/js/ratingAjax.js": "/js/ratingAjax.js"
+    "/js/ratingAjax.js": "/js/ratingAjax.js",
+    "/js/toggleFavoriteAjax.js": "/js/toggleFavoriteAjax.js"
 }

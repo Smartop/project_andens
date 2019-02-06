@@ -18,8 +18,8 @@
                     <p>{{ $photo->comment_count }}</p>
                     <a href="/photo/{{ $photo->id }}"><i class="fas fa-comment"></i></a>
                 </div>
+                @auth
                 <div class="favor">
-                    {{ $photo->isFavorite($photo->id) }}
                     @if ( $photo->isFavorite($photo->id) == 0)
                     <i class="icon far fa-bookmark"></i>
                     <form action="/favorite" id="favorForm" method="POST">
@@ -36,6 +36,7 @@
                     </form>
                     @endif
                 </div>
+                @endauth
             </div>
         </div>
         @endforeach

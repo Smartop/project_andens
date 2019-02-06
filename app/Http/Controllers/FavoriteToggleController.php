@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Favorite;
 
+use Response;
+
 class FavoriteToggleController extends Controller
 {
     public function toggleFavorite(Request $request) 

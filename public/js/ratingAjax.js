@@ -104,7 +104,7 @@ $(document).ready(function () {
       url: '/storeRating',
       type: "POST",
       data: $("#ratingForm").serialize(),
-      success: alert("Successful rated")
+      success: console.log("Successful rated")
     });
   });
 });
@@ -118,7 +118,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/vagrant/code/project_andens/resources/js/ratingAjax.js */"./resources/js/ratingAjax.js");
+module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/ratingAjax.js */"./resources/js/ratingAjax.js");
 
 
 /***/ })

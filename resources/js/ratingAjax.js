@@ -9,7 +9,7 @@ $(document).ready(function () {
             url: '/storeRating',
             type: "POST",
             data: $("#ratingForm").serialize(),
-            success: alert("Successful rated"),
+            success: console.log("Successful rated"),
         });
     });
 })
