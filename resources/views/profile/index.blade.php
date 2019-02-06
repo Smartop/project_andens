@@ -31,8 +31,9 @@
             @foreach ( $photos as $photo)
             <div class="col md-4">
             <a href="/photo/{{ $photo->id }}">
-                <img src="{!! asset('storage/img/'. $photo->file_name ) !!}" alt="{{ $photo->title }}" width="400px"
-                     height="200px">
+                {{--  <img src="{!! asset('storage/img/'. $photo->file_name ) !!}"   --}}
+                <img src="{{ $photo->file_name }}" 
+                    alt="{{ $photo->title }}" width="400px" height="200px">
             </a>
             </div>
             @endforeach
