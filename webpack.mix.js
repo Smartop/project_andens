@@ -17,6 +17,7 @@ mix.js('resources/js/app.js', 'public/js')
    .js('resources/js/toggleFavoriteAjax.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
    .sass('resources/sass/media-queries.scss', 'public/css')
-   .sass('resources/sass/profile_page.scss', 'public/css');
+   .sass('resources/sass/profile_page.scss', 'public/css')
+   .sass('resources/sass/photo_page.scss', 'public/css');
 
 mix.browserSync('andens.loc');

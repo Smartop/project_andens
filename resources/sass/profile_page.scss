@@ -6,6 +6,15 @@
         background-attachment: fixed;
         background-position: center;
         background-size: cover;
+    .navbar-laravel{
+        background-color: rgba(255, 215, 107, 0.383);
+        a{
+            color:white;
+        }
+        .nav-link{
+            color:white;
+        }
+    }
 }
 
 .header {

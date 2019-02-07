@@ -8,6 +8,18 @@
   background-size: cover;
 }
 
+.paralax-container .navbar-laravel {
+  background-color: rgba(255, 215, 107, 0.383);
+}
+
+.paralax-container .navbar-laravel a {
+  color: white;
+}
+
+.paralax-container .navbar-laravel .nav-link {
+  color: white;
+}
+
 .header {
   display: flex;
   flex-direction: column;

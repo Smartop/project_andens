@@ -1,10 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
+@push('styles')
+<link href="{{ asset('css/photo_page.css') }}" rel="stylesheet">
+@endpush
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-8 align-content-center">
+<div class="cont">
+        <div class="photo-block">
             <h2>{{ $photo->title }}</h2>
             <img src="{!!  $photo->file_name  !!}"
             {{--  asset('storage/img/'.   --}}
@@ -35,9 +37,6 @@
             <input type="submit" value="OK">
         </form>
         @endauth
-    </div>
-</div>
-
 @include('layouts.comment')
-
+</div>
 @stop

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@include('header')
+@include('layouts.header')
 @section('content')
 <section class="gallery no-frame">
     {{-- asset('storage/img/'. --}}

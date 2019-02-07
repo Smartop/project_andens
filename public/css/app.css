@@ -10771,5 +10771,6 @@ a.text-dark:focus {
 
 .navbar-laravel {
   padding: 0;
+  height: 8vh;
 }
 
