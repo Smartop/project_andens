@@ -29,6 +29,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/stripe_form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/media-queries.css') }}" rel="stylesheet">
+    @stack('styles')
 </head>
 <body>
     <div class="paralax-container">
@@ -82,11 +83,9 @@
                 </div>
             </div>
         </nav>
-        <div class="title">
-            <h1 style="user-select:none;">Welcome on Andens</h1>
-            <h4 style="user-select:none;">Share your photo with our community</h4>
+        @yield('header')
+        @yield('profile-header')
         </div>
-    </div>
         @yield('content')
 </body>
 </html>

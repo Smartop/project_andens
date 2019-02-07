@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->char('nickname', 25)->unique();
             $table->string('real_name', 60)->nullable();
             $table->text('bio')->nullable();
+            $table->string('avatar')->default('no-avatar.png');
             $table->string('country', 26)->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('email')->unique();
