@@ -62,11 +62,20 @@
   height: 100%;
 }
 
+.cont .about a img {
+  width: 3vmax;
+}
+
+.cont .about a i {
+  font-size: 1.5rem;
+}
+
 .cont .gallery {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   width: 75%;
+  min-height: 35vh;
 }
 
 .cont .gallery .title {

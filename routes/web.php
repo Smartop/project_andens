@@ -21,6 +21,8 @@ Route::get('/photo/{photo_id}', 'PhotoController@show');
 
 Route::group(['middleware' => 'auth'], function() {
     
+    Route::POST('editProfile', 'ProfileController@update');
+
     Route::post('addphoto', 'PhotoController@store')->name('storeImage');
     Route::post('publishComment', 'CommentController@publish');
     Route::post('storeRating', 'RatingController@setRating');

@@ -42,30 +42,45 @@
 </div>
 </div> --}}
 @section('profile-header')
-    <section class="header">
+<section class="header">
     <h1 class="bio">{{ $user->bio }}</h1>
-    </section>
+</section>
 @endsection
 
 <div class="cont">
     <section class="about">
         <div class="avatar">
             <img src="/img/{{ $user->avatar }}" alt="">
+            @auth
+            @if (Auth::user()->nickname == $user->nickname)
+            {{--  Show edit profile icon  --}}
+            <a href="#" data-toggle="modal" data-target=".bd-profile-modal-lg">
+                <i class="fas fa-user-edit"></i>
+            
+            </a>
+            @include('profile.edit')
+            @endif
+            @endauth
         </div>
+        @auth
+        <a href="#"><img src="/img/add-image.png" alt="add-image" data-toggle="modal" data-target=".bd-example-modal-lg"></a>
+        @include('layouts._modal')
+        @endauth
     </section>
     <section class="gallery">
         <h2 class="title">My Photography</h2>
         <div class="photo-gallery">
 
-    @foreach ( $photos as $photo)
-    <div class="photo-block">
-        <a href="/photo/{{ $photo->id }}">
-            {{-- <img src="{!! asset('storage/img/'. $photo->file_name ) !!}"--}} 
-            <img src="{{ $photo->file_name }}" alt="{{ $photo->title }}">
-        </a>
-        <p>{{ $photo->title }}</p>
-    </div>
-    @endforeach
+            @foreach ( $photos as $photo)
+            <div class="photo-block">
+                <a href="/photo/{{ $photo->id }}">
+                {{-- Uncomment when to production(and without seeder db image) --}}
+                    {{-- <img src="{!! asset('storage/img/'. $photo->file_name ) !!}" --}} <img src="{{ $photo->file_name }}"
+                         alt="{{ $photo->title }}">
+                </a>
+                <p>{{ $photo->title }}</p>
+            </div>
+            @endforeach
         </div>
     </section>
 </div>

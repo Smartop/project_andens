@@ -10569,6 +10569,20 @@ a.text-dark:focus {
   font-size: 5vmin;
 }
 
+.paralax-container .title .scroll-icon {
+  margin: 0;
+  bottom: -35%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.paralax-container .title .scroll-icon img {
+  align-self: flex-end;
+  height: 50px;
+  width: 45px;
+}
+
 .gallery.no-frame {
   width: 100vw;
   height: auto;
