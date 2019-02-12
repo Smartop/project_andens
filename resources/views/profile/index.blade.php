@@ -50,7 +50,7 @@
 <div class="cont">
     <section class="about">
         <div class="avatar">
-            <img src="/img/{{ $user->avatar }}" alt="">
+            <img src="/{{ $user->getImage() }}" alt="">
             @auth
             @if (Auth::user()->nickname == $user->nickname)
             {{--  Show edit profile icon  --}}
@@ -75,8 +75,8 @@
             <div class="photo-block">
                 <a href="/photo/{{ $photo->id }}">
                 {{-- Uncomment when to production(and without seeder db image) --}}
-                    {{-- <img src="{!! asset('storage/img/'. $photo->file_name ) !!}" --}} <img src="{{ $photo->file_name }}"
-                         alt="{{ $photo->title }}">
+                    {{-- <img src="{!! asset('storage/img/'. $photo->file_name ) !!}" --}} 
+                    <img src="{{ $photo->file_name }}" alt="{{ $photo->title }}">
                 </a>
                 <p>{{ $photo->title }}</p>
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Storage;
 
 class ProfileController extends Controller
 {
@@ -18,9 +19,10 @@ class ProfileController extends Controller
             'country' => 'required',
             'gender' => 'required',
             'email' => 'email|unique:users,email,'.$user->id,
-            'password' => 'required|min:6|confirmed'
+            'password' => 'min:6|confirmed',
+            'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
-
+        $avatar = $request->avatar;
         $user->nickname = request('nickname');
         $user->real_name = request('real_name');
         $user->bio = request('bio');
@@ -28,10 +30,18 @@ class ProfileController extends Controller
         $user->gender = request('gender');
         $user->email = request('email');
         $user->password = bcrypt(request('password'));
+
+        if($request->hasFile('avatar')) {
+            $user->uploadAvatar($avatar);
+        }
         //$user = User::add($request->all());
 
         $user->save();
 
         return back();  
+    }
+
+    public function updateAvatar(Request $request) {
+        
     }
 }

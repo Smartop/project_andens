@@ -9,6 +9,8 @@ use Laravel\Cashier\Cashier;
 use Laravel\Cashier\Billable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Storage;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -65,10 +67,10 @@ class User extends Authenticatable
         }
         if($this->avatar != null)
         {
-        Storage::delete('uploads/' . $this->avatar);
+        Storage::delete('img' . $this->avatar);
         }
         $filename = str_random(10) . '.' . $image->extension();
-        $image->storeAs('uploads', $filename);
+        $image->storeAs('img', $filename);
         $this->avatar = $filename;
         $this->save();
     }
@@ -76,8 +78,8 @@ class User extends Authenticatable
     {
         if($this->avatar == null)
         {
-            return '/img/no-user-image.png';
+            return 'img/no-avatar.png';
         }
-        return '/uploads/' . $this->avatar;
+        return 'storage/img/' . $this->avatar;
     }
 }
