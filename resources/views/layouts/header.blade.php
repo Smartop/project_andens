@@ -6,4 +6,5 @@
         <img src="/img/scroll-down.png" alt="">
     </div>
 </header>
+
 @endsection

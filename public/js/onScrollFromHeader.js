@@ -81,48 +81,36 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/toggleFavoriteAjax.js":
+/***/ "./resources/js/onScrollFromHeader.js":
 /*!********************************************!*\
-  !*** ./resources/js/toggleFavoriteAjax.js ***!
+  !*** ./resources/js/onScrollFromHeader.js ***!
   \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(document).ready(function () {
-  $('.gallery').on('click', ".favor", function () {
-    console.log('clicked');
-    $(this).find('form').submit();
-  });
-  $('form').on('submit', function () {
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-    $.ajax({
-      type: "POST",
-      url: "/favorite",
-      data: $("#favorForm").serialize(),
-      success: console.log('done')
-    });
+jQuery(function ($) {
+  $('.title').on('scroll', function () {
+    if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+      $('.scroll-icon').hide();
+    }
   });
 });
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**************************************************!*\
-  !*** multi ./resources/js/toggleFavoriteAjax.js ***!
+  !*** multi ./resources/js/onScrollFromHeader.js ***!
   \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/toggleFavoriteAjax.js */"./resources/js/toggleFavoriteAjax.js");
+module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/onScrollFromHeader.js */"./resources/js/onScrollFromHeader.js");
 
 
 /***/ })

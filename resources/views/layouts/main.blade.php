@@ -12,9 +12,10 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/modal.js') }}" defer></script>
-    <script src="{{ asset('js/ratingAjax.js') }}" defer></script>
+    <script src="{{ asset('js/mainPage.js') }}" defer></script>
+    {{--  <script src="{{ asset('js/ratingAjax.js') }}" defer></script>
     <script src="{{ asset('js/toggleFavoriteAjax.js') }}" defer></script>
-
+    <script src="{{ asset('js/onScrollFromHeader.js') }}"></script>  --}}
     {{--  <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

@@ -5,6 +5,5 @@
     "/css/profile_page.css": "/css/profile_page.css",
     "/css/photo_page.css": "/css/photo_page.css",
     "/js/modal.js": "/js/modal.js",
-    "/js/ratingAjax.js": "/js/ratingAjax.js",
-    "/js/toggleFavoriteAjax.js": "/js/toggleFavoriteAjax.js"
+    "/js/mainPage.js": "/js/mainPage.js"
 }
