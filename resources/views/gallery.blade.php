@@ -1,8 +1,7 @@
 @extends('layouts.main')
 @include('layouts.header')
-@section('content')
+{{--  @section('content')
 <section class="gallery no-frame">
-    {{-- asset('storage/img/'. --}}
     <div class="infinite-scroll">
         @foreach ($photos as $photo)
         <div class="photo-block">
@@ -61,4 +60,13 @@
         });
     });
 </script>
-@stop
+@stop  --}}
+
+
+@section('gallery')
+
+   <div id="vue">
+        <infinite-loading></infinite-loading>
+   </div>
+
+@endsection

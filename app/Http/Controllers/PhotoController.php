@@ -105,4 +105,10 @@ class PhotoController extends Controller
     {
         //
     }
+
+    public function iVue() {
+        $data = Photo::orderBy('created_at')->paginate(6);
+        //return $photos;
+        return response()->json($data);
+    }
 }

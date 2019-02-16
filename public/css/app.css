@@ -10757,44 +10757,30 @@ a.text-dark:focus {
 }
 
 .gallery.no-frame .infinite-scroll {
-  width: 100%;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added {
-  width: 100%;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll {
   width: 100vw;
+  height: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block {
+.gallery.no-frame .infinite-scroll .photo-block {
   align-items: flex-start;
   width: 33.3333333333%;
   height: 33.3333333333%;
   position: relative;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block a {
+.gallery.no-frame .infinite-scroll .photo-block a {
   text-decoration: none;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block a img {
+.gallery.no-frame .infinite-scroll .photo-block a img {
   width: 100%;
   height: 100%;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block .actions {
+.gallery.no-frame .infinite-scroll .photo-block .actions {
   position: absolute;
   display: flex;
   justify-content: space-around;
@@ -10806,14 +10792,14 @@ a.text-dark:focus {
   width: 100%;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block .actions div {
+.gallery.no-frame .infinite-scroll .photo-block .actions div {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block .actions div p {
+.gallery.no-frame .infinite-scroll .photo-block .actions div p {
   color: white;
   margin-bottom: 0;
   padding-right: 5px;
@@ -10823,75 +10809,15 @@ a.text-dark:focus {
           user-select: none;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block .actions div i {
+.gallery.no-frame .infinite-scroll .photo-block .actions div i {
   color: white;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block .actions .favor {
+.gallery.no-frame .infinite-scroll .photo-block .actions .favor {
   cursor: pointer;
 }
 
-.gallery.no-frame .infinite-scroll .jscroll-inner .jscroll-added .infinite-scroll .photo-block:hover .actions {
-  bottom: 0;
-  padding-left: 1%;
-  opacity: 1;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block {
-  align-items: flex-start;
-  width: 33.3333333333%;
-  height: 33.3333333333%;
-  position: relative;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block a {
-  text-decoration: none;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block a img {
-  width: 100%;
-  height: 100%;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block .actions {
-  position: absolute;
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  bottom: -15px;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  width: 100%;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block .actions div {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block .actions div p {
-  color: white;
-  margin-bottom: 0;
-  padding-right: 5px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block .actions div i {
-  color: white;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block .actions .favor {
-  cursor: pointer;
-}
-
-.gallery.no-frame .infinite-scroll .jscroll-inner .photo-block:hover .actions {
+.gallery.no-frame .infinite-scroll .photo-block:hover .actions {
   bottom: 0;
   padding-left: 1%;
   opacity: 1;

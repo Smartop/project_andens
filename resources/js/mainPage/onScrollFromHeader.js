@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var target = $('.gallery');
-    var targetPos = target.offset().top + 100;
     var winHeight = $(window).height();
+    var targetPos = winHeight + 20;
     var scrollToElem = targetPos - winHeight;
     $(window).on('scroll', function () {
         var winScrollTop = $(this).scrollTop();
@@ -9,7 +9,6 @@ $(document).ready(function () {
               $(".scroll-icon").fadeOut("slow", function () {
                   // Animation complete.
               });
-            //$('.scroll-icon').hide();
         }
     })
 });

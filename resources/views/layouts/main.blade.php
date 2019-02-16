@@ -88,5 +88,6 @@
         @yield('profile-header')
         </div>
         @yield('content')
+        @yield('gallery')
 </body>
 </html>
