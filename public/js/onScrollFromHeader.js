@@ -81,36 +81,43 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/onScrollFromHeader.js":
-/*!********************************************!*\
-  !*** ./resources/js/onScrollFromHeader.js ***!
-  \********************************************/
+/***/ "./resources/js/mainPage/onScrollFromHeader.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/mainPage/onScrollFromHeader.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-jQuery(function ($) {
-  $('.title').on('scroll', function () {
-    if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-      $('.scroll-icon').hide();
+$(document).ready(function () {
+  var target = $('.gallery');
+  var winHeight = $(window).height();
+  var targetPos = winHeight + 20;
+  var scrollToElem = targetPos - winHeight;
+  $(window).on('scroll', function () {
+    var winScrollTop = $(this).scrollTop();
+
+    if (winScrollTop > scrollToElem) {
+      $(".scroll-icon").fadeOut("slow", function () {// Animation complete.
+      });
     }
   });
 });
 
 /***/ }),
 
-/***/ 4:
-/*!**************************************************!*\
-  !*** multi ./resources/js/onScrollFromHeader.js ***!
-  \**************************************************/
+/***/ 3:
+/*!***********************************************************!*\
+  !*** multi ./resources/js/mainPage/onScrollFromHeader.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/onScrollFromHeader.js */"./resources/js/onScrollFromHeader.js");
+module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/mainPage/onScrollFromHeader.js */"./resources/js/mainPage/onScrollFromHeader.js");
 
 
 /***/ })

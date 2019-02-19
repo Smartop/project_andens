@@ -7,24 +7,13 @@
       infinite-scroll-distance="4"
     >
       <div class="photo-block" v-for="(photo, $index) in photos" :key="$index">
+        
         <a :href="'photo/'+photo.id">
           <img :src="photo.file_name" :alt="photo.title" width="400px" height="200px">
         </a>
+        <infinite-loading-actions :photo_id="photo.id" :user_id="user"></infinite-loading-actions>
       </div>
     </div>
-    <!-- <div class="actions">
-        <div>
-          <p>{{ photo.star_count }}</p>
-          <i class="fas fa-star"></i>
-        </div>
-        <div>
-          <p>{{ photo.comment_count }}</p>
-          <a href="/photo/{{ photo.id }}">
-            <i class="fas fa-comment"></i>
-          </a>
-        </div>
-    </div>-->
-    <!-- </div> -->
   </div>
 </template>
  
@@ -39,6 +28,7 @@ export default {
     infiniteScroll,
     axios
   },
+  props: ["user"],
   data() {
     return {
       page: 1,

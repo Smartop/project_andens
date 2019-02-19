@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/ratingAjax.js":
-/*!************************************!*\
-  !*** ./resources/js/ratingAjax.js ***!
-  \************************************/
+/***/ "./resources/js/mainPage/ratingAjax.js":
+/*!*********************************************!*\
+  !*** ./resources/js/mainPage/ratingAjax.js ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -112,13 +112,13 @@ $(document).ready(function () {
 /***/ }),
 
 /***/ 2:
-/*!******************************************!*\
-  !*** multi ./resources/js/ratingAjax.js ***!
-  \******************************************/
+/*!***************************************************!*\
+  !*** multi ./resources/js/mainPage/ratingAjax.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/ratingAjax.js */"./resources/js/ratingAjax.js");
+module.exports = __webpack_require__(/*! /home/smartop/code/project_andens/resources/js/mainPage/ratingAjax.js */"./resources/js/mainPage/ratingAjax.js");
 
 
 /***/ })

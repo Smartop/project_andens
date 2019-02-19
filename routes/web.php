@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('addphoto', 'PhotoController@store')->name('storeImage');
     Route::post('publishComment', 'CommentController@publish');
     Route::post('storeRating', 'RatingController@setRating');
+
+    Route::get('favor-status', 'FavoriteToggleController@status');
     Route::post('favorite', 'FavoriteToggleController@toggleFavorite');
     
     Route::get('subscribe', 'SubscribeController@showSubscribe');

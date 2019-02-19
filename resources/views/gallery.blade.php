@@ -66,7 +66,12 @@
 @section('gallery')
 
    <div id="vue">
-        <infinite-loading></infinite-loading>
+    @auth
+        <infinite-loading :user='{!! Auth::user()->id !!}'></infinite-loading>
+    @endauth
+    @guest
+        <infinite-loading :user="0"></infinite-loading>
+    @endguest
    </div>
 
 @endsection

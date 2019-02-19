@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('photos', 'PhotoController@iVue' );
+Route::get('photoinfo', 'PhotoController@info' );

@@ -109,6 +109,19 @@ class PhotoController extends Controller
     public function iVue() {
         $data = Photo::orderBy('created_at')->paginate(6);
         //return $photos;
+        //dd($data);
         return response()->json($data);
+    }
+    public function info(Request $request) {
+        $photo_id = $request->photo_id;
+        $photo = Photo::where('id', $photo_id)->first(); //find not work WTF?
+        $comment_count = $photo->getCommentCountAttribute($photo_id);
+        $star_count = $photo->getStarCountAttribute($photo_id);
+        //dd($data);
+        return response()->json(array(
+            'photo' => $photo,
+            'comment_count' => $comment_count,
+            'star_count' => $star_count,
+        ));
     }
 }

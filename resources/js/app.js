@@ -26,6 +26,8 @@ Vue.config.productionTip = false;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 // Vue.component('modal-addimage', require('./components/Modal-AddImage.vue').default);
 Vue.component('infinite-loading', require('./components/InfiniteLoading.vue').default);
+Vue.component('infinite-loading-actions', require('./components/InfiniteLoadingActions.vue').default);
+Vue.component('action-favorite', require('./components/ActionFavorite.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
