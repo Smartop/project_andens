@@ -177,3 +177,17 @@ body {
   width: 60vw;
 }
 
+@media screen and (max-width: 480px) {
+  .cont {
+    flex-direction: column;
+  }
+
+  .cont .photo-block {
+    width: 100%;
+  }
+
+  .cont .photo-block img {
+    width: 99%;
+  }
+}
+

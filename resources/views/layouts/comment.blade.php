@@ -40,7 +40,11 @@
 
                 <!-- current #{user} avatar -->
                 <div class="user_avatar">
+                    @if (Auth::user()->avatar)
                     <img src="/uploads/{{ Auth::user()->avatar }}">
+                    @else
+                    <img src="/img/no-avatar.png">
+                    @endif
                 </div><!-- the input field -->
                 <div class="input_comment">
                     <input type="text" placeholder="Join the conversation..">
@@ -56,7 +60,11 @@
                 <ul class="user_comment">
 
                     <div class="user_avatar">
+                        @if ($comment->user->avatar)
                         <img src="/uploads/{{ $comment->user->avatar }}">
+                        @else
+                        <img src="/img/no-avatar.png">
+                        @endif
                     </div>
                     <div class="comment_body">
                         <p>{{ $comment->body }}</p>
@@ -66,8 +74,10 @@
                         <!-- inc. date and time -->
                         <div class="comment_details">
                             <ul>
-                                <li><i class="fa fa-clock-o"></i>{{ \Carbon\Carbon::parse($comment->user->create_at)->format('h:m')}}</li>
-                                <li><i class="fa fa-calendar"></i>{{ \Carbon\Carbon::parse($comment->user->create_at)->format('d/m/Y')}}</li>
+                                <li><i class="fa fa-clock-o"></i>{{
+                                    \Carbon\Carbon::parse($comment->user->create_at)->format('h:m')}}</li>
+                                <li><i class="fa fa-calendar"></i>{{
+                                    \Carbon\Carbon::parse($comment->user->create_at)->format('d/m/Y')}}</li>
                                 <li><i class="fa fa-pencil"></i> <span class="user">{{ $comment->user->nickname }}</span></li>
                             </ul>
                         </div>

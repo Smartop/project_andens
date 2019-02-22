@@ -1,20 +1,48 @@
 @import 'comment';
 
-.paralax-container{
+.paralax-container {
     background: none;
     height: auto;
 }
-.cont{
+
+.cont {
     display: flex;
 
-    .photo-block{
+    .photo-block {
         width: 75vw;
 
-        h2{
+        h2 {
             text-align: center;
         }
-        img{
+
+        img {
             width: 60vw;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    
+}
+
+@media screen and (min-width: 480px) and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 480px) {
+    .cont {
+        flex-direction: column;
+
+        .photo-block {
+            width: 100%;
+
+            img {
+                width: 99%;
+            }
         }
     }
 }
