@@ -8,7 +8,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import 'imageupload_modal.scss';
+@import 'mainpage.scss';
+@import 'starRating.scss';
+
 .navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  padding: 0;
+  height: 8vh;
 }

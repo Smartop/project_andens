@@ -9,6 +9,6 @@ $factory->define(App\Photo::class, function (Faker $faker) {
         'camera' => $faker->state,
         'category' => $faker->word,
         'file_name' => $faker->imageUrl,
-        'user_id' => factory('App\User')->create()->id,
+        //'user_id' => factory('App\User')->create()->id,
     ];
 });

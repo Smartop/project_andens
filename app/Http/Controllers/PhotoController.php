@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Photo;
+use App\User;
+use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PhotoController extends Controller
 {
@@ -12,11 +15,19 @@ class PhotoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($nick)
     {
-        //
+        $user = User::where('nickname', "$nick")->first();
+        $user_id = $user->id;
+        $photos = Photo::where('user_id', $user_id)->paginate(5);
+        return view('profile.index', compact('user', 'photos'));
     }
 
+    public function galleryShow() 
+    {
+        $photos = Photo::orderBy('created_at')->paginate(3);
+        return view('gallery', compact('photos'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +46,16 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|max:60',
+            'desc' => 'nullable',
+            'category' => 'required|max:20',
+            'camera' => 'nullable',
+            'image' => 'required|mimes:jpeg,bmp,png'
+        ]);
+        $photo = Photo::add($request->all());
+        $photo->uploadImage($request->file('image'));
+        return redirect()->back();        
     }
 
     /**
@@ -44,9 +64,12 @@ class PhotoController extends Controller
      * @param  \App\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo)
+    public function show(Photo $photo_id)
     {
-        //
+        $photo = Photo::findOrFail($photo_id)->first();
+        $id = $photo->id;
+        $comments = Comment::where('photo_id', $id)->get();
+        return view('profile.photoView', compact('photo', 'comments'));
     }
 
     /**

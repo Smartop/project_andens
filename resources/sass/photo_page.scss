@@ -1,0 +1,20 @@
+@import 'comment';
+
+.paralax-container{
+    background: none;
+    height: auto;
+}
+.cont{
+    display: flex;
+
+    .photo-block{
+        width: 75vw;
+
+        h2{
+            text-align: center;
+        }
+        img{
+            width: 60vw;
+        }
+    }
+}

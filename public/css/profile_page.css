@@ -1,0 +1,103 @@
+.paralax-container {
+  background: none;
+  height: 80vh;
+  background-image: url(/img/no-back.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.paralax-container .navbar-laravel {
+  background-color: rgba(255, 215, 107, 0.383);
+}
+
+.paralax-container .navbar-laravel a {
+  color: white;
+}
+
+.paralax-container .navbar-laravel .nav-link {
+  color: white;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+}
+
+.header h1 {
+  background-color: rgba(63, 63, 63, 0.226);
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  width: 75%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.cont .about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.cont .about .avatar {
+  position: relative;
+  top: -100px;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.cont .about .avatar img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.cont .about a img {
+  width: 3vmax;
+}
+
+.cont .about a i {
+  font-size: 1.5rem;
+}
+
+.cont .gallery {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 75%;
+  min-height: 35vh;
+}
+
+.cont .gallery .title {
+  text-align: center;
+}
+
+.cont .gallery .photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cont .gallery .photo-gallery .photo-block {
+  margin: 2vmin;
+}
+
+.cont .gallery .photo-gallery .photo-block img {
+  width: 33vw;
+  height: auto;
+}
+
+.cont .gallery .photo-gallery .photo-block p {
+  text-align: center;
+}
+

@@ -1,0 +1,188 @@
+.userAvatar{
+    height: 10vmin;
+    width: 10vmin;
+    border-radius: 50%;
+}
+
+.thumbnail {
+    padding: 0px;
+}
+
+.panel {
+    position: relative;
+}
+
+.panel>.panel-heading:after,
+.panel>.panel-heading:before {
+    position: absolute;
+    top: 11px;
+    left: -16px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    pointer-events: none;
+}
+
+.panel>.panel-heading:after {
+    border-width: 7px;
+    border-right-color: #f7f7f7;
+    margin-top: 1px;
+    margin-left: 2px;
+}
+
+.panel>.panel-heading:before {
+    border-right-color: #ddd;
+    border-width: 8px;
+}
+$third: 100%/3;
+
+@mixin photo-block {
+    
+    .photo-block {
+        align-items: flex-start;
+        width: $third;
+        height: $third;
+        position: relative;
+
+        a {
+            text-decoration: none;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+
+        .actions {
+            position: absolute;
+            display: flex;
+            justify-content: space-around;
+            align-content: center;
+            bottom: -15px;
+            left: 0;
+            right: 0;
+            opacity: 0;
+            width: 100%;
+
+            div {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+
+                p {
+                    color: white;
+                    margin-bottom: 0;
+                    padding-right: 5px;
+                    user-select: none;
+                }
+
+                i {
+                    color: white;
+                }
+            }
+
+            .favor {
+                cursor: pointer;
+            }
+
+        }
+
+        &:hover {
+            .actions {
+                bottom: 0;
+                padding-left: 1%;
+                opacity: 1;
+                background-color: rgba($color: #000, $alpha: 0.5);
+
+            }
+        }
+    }
+}
+
+.paralax-container {
+    background-image: url('/img/dawn.jpg');
+    width: 100%;
+    height: 100vh;
+    max-width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+
+    nav {
+        background-color: rgba($color: rgba(0, 0, 255), $alpha: 0.1);
+    }
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+
+        h1 {
+            font-size: 7vmin;
+        }
+
+        h4 {
+            font-size: 5vmin;
+        }
+        .scroll-icon{
+            margin: 0;
+            bottom: -35%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            img{
+                align-self: flex-end;
+                height: 50px;
+                width: 45px;
+            }
+        }
+        
+    }
+}
+
+.gallery.no-frame {
+
+    width: 100vw;
+    height: auto;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+
+    .infinite-scroll {
+        width: 100%;
+
+        .jscroll-inner {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            position: relative;
+
+            .jscroll-added {
+                width: 100%;
+
+                .infinite-scroll {
+                    width: 100vw;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    @include photo-block;
+                }
+            }
+
+            @include photo-block;
+
+        }
+    }
+}
