@@ -24,7 +24,7 @@ class CreatePhotosTable extends Migration
             $table->softDeletes();
             $table->timestamps();
 
-             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

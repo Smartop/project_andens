@@ -6,9 +6,12 @@
  */
 
 require('./bootstrap');
+var jscroll = require('jscroll');
 
 window.Vue = require('vue');
 
+//Vue.use(infiniteScroll)
+Vue.config.productionTip = false;
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -21,13 +24,18 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('modal-addimage', require('./components/Modal-AddImage.vue').default);
+Vue.component('infinite-loading', require('./components/InfiniteLoading.vue').default);
+Vue.component('infinite-loading-actions', require('./components/InfiniteLoadingActions.vue').default);
+Vue.component('action-favorite', require('./components/ActionFavorite.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+/*
+*/
 const app = new Vue({
-    el: '#app'
+    el: '#vue'
 });
