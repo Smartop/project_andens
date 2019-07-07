@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PhotoController@galleryShow' );
+Route::get('/', 'PhotoController@galleryShow');
 
 Auth::routes();
 
@@ -19,8 +19,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('user/{nick}', 'PhotoController@index')->name('userPage');
 Route::get('/photo/{photo_id}', 'PhotoController@show');
 
-Route::group(['middleware' => 'auth'], function() {
-    
+Route::group(['middleware' => 'auth'], function () {
+
     Route::POST('editProfile', 'ProfileController@update');
 
     Route::post('addphoto', 'PhotoController@store')->name('storeImage');
@@ -29,7 +29,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('favor-status', 'FavoriteToggleController@status');
     Route::post('favorite', 'FavoriteToggleController@toggleFavorite');
-    
+
     Route::get('subscribe', 'SubscribeController@showSubscribe');
     Route::post('subscribe', 'SubscribeController@subscription');
 });

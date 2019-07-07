@@ -65,13 +65,13 @@
 
 @section('gallery')
 
-   <div id="vue">
-    @auth
-        <infinite-loading :user='{!! Auth::user()->id !!}'></infinite-loading>
-    @endauth
-    @guest
-        <infinite-loading :user="0"></infinite-loading>
-    @endguest
-   </div>
+    <div id="vue">
+        @auth
+            <infinite-loading :user='{!! Auth::user()->id !!}'></infinite-loading>
+        @endauth
+        @guest
+            <infinite-loading :user="0"></infinite-loading>
+        @endguest
+    </div>
 
 @endsection

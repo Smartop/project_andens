@@ -9,16 +9,17 @@ use Storage;
 
 class ProfileController extends Controller
 {
-    public function update(Request $request) {
-    
-    $user = Auth::user();
-    $this->validate($request, [
-            'nickname' => 'max:25|unique:users,nickname,'.$user->id,
+    public function update(Request $request)
+    {
+
+        $user = Auth::user();
+        $this->validate($request, [
+            'nickname' => 'max:25|unique:users,nickname,' . $user->id,
             'real_name' => 'nullable|max:60',
             'bio' => 'nullable',
             'country' => 'required',
             'gender' => 'required',
-            'email' => 'email|unique:users,email,'.$user->id,
+            'email' => 'email|unique:users,email,' . $user->id,
             'password' => 'min:6|confirmed',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ]);
@@ -31,17 +32,18 @@ class ProfileController extends Controller
         $user->email = request('email');
         $user->password = bcrypt(request('password'));
 
-        if($request->hasFile('avatar')) {
+        if ($request->hasFile('avatar')) {
             $user->uploadAvatar($avatar);
         }
         //$user = User::add($request->all());
 
         $user->save();
 
-        return back();  
+        return back();
     }
 
-    public function updateAvatar(Request $request) {
-        
+    public function updateAvatar(Request $request)
+    {
+
     }
 }

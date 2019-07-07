@@ -3,7 +3,13 @@
 /public/storage
 /storage/*.key
 /storage/logs
+/storage/debugbar
 /vendor
+/.idea
+.env
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml

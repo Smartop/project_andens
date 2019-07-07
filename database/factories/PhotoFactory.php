@@ -2,6 +2,8 @@
 
 use Faker\Generator as Faker;
 
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
+
 $factory->define(App\Photo::class, function (Faker $faker) {
     return [
         'title' => $faker->streetName,

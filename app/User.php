@@ -8,12 +8,14 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Cashier\Cashier;
 use Laravel\Cashier\Billable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Arr;
 
 use Storage;
 
 class User extends Authenticatable
 {
     use Notifiable;
+
     //use Billable;
 
     /**
@@ -22,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nickname', 'real_name', 'bio', 'country', 'sex', 'gender' ,'email',
+        'nickname', 'real_name', 'bio', 'country', 'sex', 'gender', 'email',
     ];
 
     /**
@@ -38,7 +40,7 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
-        
+
     public function stars()
     {
         return $this->hasMany(Rating::class);
@@ -57,27 +59,25 @@ class User extends Authenticatable
         $user->password = bcrypt($fields['password']);
         $user->save();
         return $user;
-    }    
-    
+    }
+
     public function uploadAvatar($image)
     {
-        if($image == null) 
-        { 
-            return; 
+        if ($image == null) {
+            return;
         }
-        if($this->avatar != null)
-        {
-        Storage::delete('img' . $this->avatar);
+        if ($this->avatar != null) {
+            Storage::delete('img' . $this->avatar);
         }
-        $filename = str_random(10) . '.' . $image->extension();
+        $filename = Str::random(10) . '.' . $image->extension();
         $image->storeAs('img', $filename);
         $this->avatar = $filename;
         $this->save();
     }
+
     public function getImage()
     {
-        if($this->avatar == null)
-        {
+        if ($this->avatar == null) {
             return 'img/no-avatar.png';
         }
         return 'storage/img/' . $this->avatar;

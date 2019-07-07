@@ -2,6 +2,8 @@
 
 use Faker\Generator as Faker;
 
+/* @var $factory \Illuminate\Database\Eloquent\Factory */
+
 $factory->define(App\Comment::class, function (Faker $faker) {
     return [
         'body' => $faker->realText(rand(20, 60)),
