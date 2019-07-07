@@ -64,7 +64,7 @@ class Photo extends Model
     {
         if($image == null) { return; }
         //Storage::delete('uploads/' . $this->image);
-        $file_name = str_random(10).'.'. $image->extension();
+        $file_name = Str::random(10).'.'. $image->extension();
         $image->storeAs('public/img', $file_name);
         $this->file_name = $file_name;
         $this->save();

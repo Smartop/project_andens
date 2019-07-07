@@ -20,14 +20,17 @@ class PhotoController extends Controller
         $user = User::where('nickname', "$nick")->first();
         $user_id = $user->id;
         $photos = Photo::where('user_id', $user_id)->paginate(5);
+
         return view('profile.index', compact('user', 'photos'));
     }
 
-    public function galleryShow() 
+    public function galleryShow()
     {
         $photos = Photo::orderBy('created_at')->paginate(3);
+
         return view('gallery', compact('photos'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -41,7 +44,7 @@ class PhotoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -55,13 +58,14 @@ class PhotoController extends Controller
         ]);
         $photo = Photo::add($request->all());
         $photo->uploadImage($request->file('image'));
-        return redirect()->back();        
+
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Photo  $photo
+     * @param \App\Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function show(Photo $photo_id)
@@ -69,13 +73,14 @@ class PhotoController extends Controller
         $photo = Photo::findOrFail($photo_id)->first();
         $id = $photo->id;
         $comments = Comment::where('photo_id', $id)->get();
+
         return view('profile.photoView', compact('photo', 'comments'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Photo  $photo
+     * @param \App\Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function edit(Photo $photo)
@@ -86,8 +91,8 @@ class PhotoController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Photo  $photo
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Photo               $photo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Photo $photo)
@@ -98,11 +103,35 @@ class PhotoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Photo  $photo
+     * @param \App\Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function destroy(Photo $photo)
     {
         //
+    }
+
+    public function iVue()
+    {
+        $data = Photo::orderBy('created_at')->paginate(6);
+        //return $photos;
+        //dd($data);
+
+        return response()->json($data);
+    }
+
+    public function info(Request $request)
+    {
+        $photo_id = $request->photo_id;
+        $photo = Photo::where('id', $photo_id)->first(); //FIXME find not working
+        $comment_count = $photo->getCommentCountAttribute($photo_id);
+        $star_count = $photo->getStarCountAttribute($photo_id);
+        //dd($data);
+
+        return response()->json([
+            'photo' => $photo,
+            'comment_count' => $comment_count,
+            'star_count' => $star_count,
+        ]);
     }
 }

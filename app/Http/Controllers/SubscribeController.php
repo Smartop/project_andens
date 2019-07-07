@@ -10,11 +10,12 @@ use App\User;
 
 class SubscribeController extends Controller
 {
-    public function showSubscribe() 
+    public function showSubscribe()
     {
         return view('subscribe');
     }
-    public function subscription(Request $request) 
+
+    public function subscription(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
         $token = $request->stripeToken;

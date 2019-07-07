@@ -24,12 +24,16 @@ class LoginController extends Controller
     /**
      * Where to redirect users after login.
      *
+     * @return string
      * @var string
      */
-    public function redirectTo(){
+    public function redirectTo()
+    {
         $name = Auth::user()->nickname;
+
         return "/user/$name";
     }
+
     /**
      * Create a new controller instance.
      *
