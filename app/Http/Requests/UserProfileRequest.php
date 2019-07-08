@@ -24,12 +24,12 @@ class UserProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'nickname' => 'max:25|unique:users,nickname,' . $user->id,
+            'nickname' => 'max:25|unique:users,nickname',
             'real_name' => 'nullable|max:60',
             'bio' => 'nullable',
             'country' => 'required',
             'gender' => 'required',
-            'email' => 'email|unique:users,email,' . $user->id,
+            'email' => 'email|unique:users,email',
             'password' => 'min:6|confirmed',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ];

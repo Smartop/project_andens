@@ -13,7 +13,6 @@ class RatingController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
-     * @throws \Illuminate\Validation\ValidationException
      */
     public function setRating(Request $request)
     {

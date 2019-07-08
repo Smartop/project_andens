@@ -32,7 +32,12 @@ class Photo extends Model
         return $this->hasMany(Favorite::class);
     }
 
-    public function getStarCountAttribute($photo_id)
+    /**
+     * Get average photo`s rating
+     *
+     * @return float
+     */
+    public function getStarCountAttribute()
     {
         $sum = $this->stars->sum('rating_value');
         $count = $this->stars->count('rating_value');
@@ -42,7 +47,12 @@ class Photo extends Model
         return round($sum/$count, 1,1);
     }
 
-    public function getCommentCountAttribute($photo_id)
+    /**
+     * Count the photo`s comments
+     *
+     * @return int|string
+     */
+    public function getCommentCountAttribute()
     {
         $count = $this->comments->count('id');
         if($count == 0) {
@@ -51,7 +61,13 @@ class Photo extends Model
         return $count;
     }
 
-        public static function add($fields)
+    /**
+     * Create new photo from fiels
+     *
+     * @param $fields
+     * @return Photo
+     */
+    public static function add($fields)
     {
         $photo = new static;
         $photo->fill($fields);
@@ -60,6 +76,11 @@ class Photo extends Model
         return $photo;
     }
 
+    /**
+     * Upload and save image
+     *
+     * @param $image
+     */
     public function uploadImage($image)
     {
         if($image == null) { return; }
@@ -69,31 +90,43 @@ class Photo extends Model
         $this->file_name = $file_name;
         $this->save();
     }
-    public function getImage()
+
+    /**
+     * Get image source or default
+     *
+     * @return string
+     */
+    /*public function getImage()
     {
         if($this->image == null)
         {
             return '/img/no-image.png';
         }
         return '/uploads/' . $this->image;
-    }
-    public function setCategory($id)
+    }*/
+
+    /*public function setCategory($id)
     {
         if($id == null) { return;}
         $this->category_id = $id;
         $this->save();
-    }
-    public function isFavorite($photo_id) 
+    }*/
+
+    /**
+     * Get photo`s status - favorite or not
+     *
+     * @return boolean
+     */
+    public function isFavorite()
     {
         $value = $this->favorite()->where('user_id', Auth::id() )->first();
-        //dd($value);
         if ($value === null || $value->favor == 0)
         {
-            return 0;
+            return false;
         }
         else 
         {
-            return 1;
+            return true;
         }
         
     }
