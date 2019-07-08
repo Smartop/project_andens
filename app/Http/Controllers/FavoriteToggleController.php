@@ -1,16 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Andens\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Favorite;
-Use App\Photo;
+use Andens\Favorite;
+Use Andens\Photo;
 
 use Response;
 
 class FavoriteToggleController extends Controller
 {
+    /**
+     * Make photo`s favorite or cancel that
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function toggleFavorite(Request $request)
     {
         $user_id = Auth::id();
@@ -30,6 +36,12 @@ class FavoriteToggleController extends Controller
         return redirect()->back();
     }
 
+    /**
+     * Get photo`s status - favorite or not
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function status(Request $request)
     {
         if (Auth::check()) {

@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace Andens;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-use App\Favorite;
+use Andens\Favorite;
 
 class Photo extends Model
 {
@@ -15,7 +15,7 @@ class Photo extends Model
 
     public function author()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('Andens\User', 'user_id');
     }
 
     public function comments()

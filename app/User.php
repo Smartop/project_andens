@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Andens;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -38,7 +38,7 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('Andens\Comment');
     }
 
     public function stars()
@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function photos()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('Andens\Comment');
     }
 
 

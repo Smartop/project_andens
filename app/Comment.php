@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Andens;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,11 @@ class Comment extends Model
     
     public function photo()
     {
-        return $this->belongsTo('App\Photo');
+        return $this->belongsTo('Andens\Photo');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('Andens\User', 'user_id');
     }
 }

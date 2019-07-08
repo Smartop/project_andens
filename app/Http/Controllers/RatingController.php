@@ -1,26 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Andens\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Rating;
+use Andens\Rating;
 
 class RatingController extends Controller
 {
     /**
-     * Set rating to photo
+     * Set new or update current photo`s rating
+     *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Validation\ValidationException
      */
     public function setRating(Request $request)
     {
-
-        $this->validate($request, [
-            'rating' => 'required|max:2'
-        ]);
-
         $user_id = Auth::id();
         // $rating = new Rating;
         // $rating->rating_value = $request->input('rating');

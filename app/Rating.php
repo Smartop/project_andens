@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Andens;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,12 +10,12 @@ class Rating extends Model
 
     public function photo()
     {
-        return $this->belongsTo('App\Photo', 'photo_id');
+        return $this->belongsTo('Andens\Photo', 'photo_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('Andens\User', 'user_id');
     }
 
     public function avges($photo_id) 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Andens\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use Andens\User;
 
 class SubscribeController extends Controller
 {

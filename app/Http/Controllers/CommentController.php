@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Andens\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comment;
+use Andens\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller

@@ -1,28 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Andens\Http\Controllers;
 
+use Andens\Http\Requests\UserProfileRequest;
 use Illuminate\Http\Request;
-use App\User;
+use Andens\User;
 use Auth;
 use Storage;
 
 class ProfileController extends Controller
 {
-    public function update(Request $request)
+    /**
+     * Auth user update own profile
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(UserProfileRequest $request)
     {
-
         $user = Auth::user();
-        $this->validate($request, [
-            'nickname' => 'max:25|unique:users,nickname,' . $user->id,
-            'real_name' => 'nullable|max:60',
-            'bio' => 'nullable',
-            'country' => 'required',
-            'gender' => 'required',
-            'email' => 'email|unique:users,email,' . $user->id,
-            'password' => 'min:6|confirmed',
-            'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
-        ]);
         $avatar = $request->avatar;
         $user->nickname = request('nickname');
         $user->real_name = request('real_name');

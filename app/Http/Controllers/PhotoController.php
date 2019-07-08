@@ -1,18 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Andens\Http\Controllers;
 
-use App\Photo;
-use App\User;
-use App\Comment;
+use Andens\User;
+use Andens\Photo;
+use Andens\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Andens\Http\Requests\PhotoStoreRequest;
+use phpDocumentor\Reflection\Types\Integer;
 
 class PhotoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of user`s photos.
      *
+     * @var $nick
      * @return \Illuminate\Http\Response
      */
     public function index($nick)
@@ -24,6 +27,11 @@ class PhotoController extends Controller
         return view('profile.index', compact('user', 'photos'));
     }
 
+    /**
+     * Display last photos
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function galleryShow()
     {
         $photos = Photo::orderBy('created_at')->paginate(3);
@@ -42,20 +50,13 @@ class PhotoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param PhotoStoreRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(PhotoStoreRequest $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:60',
-            'desc' => 'nullable',
-            'category' => 'required|max:20',
-            'camera' => 'nullable',
-            'image' => 'required|mimes:jpeg,bmp,png'
-        ]);
         $photo = Photo::add($request->all());
         $photo->uploadImage($request->file('image'));
 
@@ -63,12 +64,12 @@ class PhotoController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource
      *
-     * @param \App\Photo $photo
+     * @param $photo_id
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo_id)
+    public function show($photo_id)
     {
         $photo = Photo::findOrFail($photo_id)->first();
         $id = $photo->id;
@@ -80,7 +81,7 @@ class PhotoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Photo $photo
+     * @param \Andens\Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function edit(Photo $photo)
@@ -92,7 +93,7 @@ class PhotoController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Photo               $photo
+     * @param \Andens\Photo               $photo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Photo $photo)
@@ -103,7 +104,7 @@ class PhotoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Photo $photo
+     * @param \Andens\Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function destroy(Photo $photo)
@@ -111,6 +112,11 @@ class PhotoController extends Controller
         //
     }
 
+    /**
+     * Get json of photos with pagination
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function iVue()
     {
         $data = Photo::orderBy('created_at')->paginate(6);
@@ -120,6 +126,12 @@ class PhotoController extends Controller
         return response()->json($data);
     }
 
+    /**
+     * Get photo information in json format
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function info(Request $request)
     {
         $photo_id = $request->photo_id;
