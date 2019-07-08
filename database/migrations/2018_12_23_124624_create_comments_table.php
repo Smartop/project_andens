@@ -15,9 +15,9 @@ class CreateCommentsTable extends Migration
     {
         Schema::enableForeignKeyConstraints();
         Schema::create('comments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('photo_id')->unsigned();
+            $table->bigIncrements('id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('photo_id')->unsigned();
             $table->text('body');
             $table->timestamps();
 
