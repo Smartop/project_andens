@@ -1,3 +1,4 @@
+<!--suppress HtmlUnknownTarget -->
 <template>
     <div class="modal-mask">
         <div class="modal-wrapper">

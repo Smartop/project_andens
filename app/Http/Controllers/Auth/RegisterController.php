@@ -2,7 +2,7 @@
 
 namespace Andens\Http\Controllers\Auth;
 
-use Andens\User;
+use Andens\Models\User;
 use Andens\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -66,7 +66,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \Andens\User
+     * @return \Andens\Models\User
      */
     protected function create(array $data)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Andens;
+namespace Andens\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,12 +10,12 @@ class Favorite extends Model
 
     public function photo()
     {
-        return $this->belongsTo('Andens\Photo', 'photo_id');
+        return $this->belongsTo('Andens\Models\Photo', 'photo_id');
     }
 
     public function user()
     {
-        return $this->belongsTo('Andens\User', 'user_id');
+        return $this->belongsTo('Andens\Models\User', 'user_id');
     }
 
 

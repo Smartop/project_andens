@@ -1,3 +1,4 @@
+<!--suppress HtmlUnknownAttribute -->
 <template>
   <div class="gallery no-frame">
     <div
@@ -21,7 +22,7 @@
 import axios from "axios";
 import infiniteScroll from "vue-infinite-scroll";
 
-var api = "/api/photos"; //or url
+let api = "/api/photos"; //or url
 
 export default {
   components: {

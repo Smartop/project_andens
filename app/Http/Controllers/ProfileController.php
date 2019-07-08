@@ -4,7 +4,7 @@ namespace Andens\Http\Controllers;
 
 use Andens\Http\Requests\UserProfileRequest;
 use Illuminate\Http\Request;
-use Andens\User;
+use Andens\Models\User;
 use Auth;
 use Storage;
 

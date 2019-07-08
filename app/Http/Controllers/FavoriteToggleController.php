@@ -4,8 +4,8 @@ namespace Andens\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Andens\Favorite;
-Use Andens\Photo;
+use Andens\Models\Favorite;
+use Andens\Models\Photo;
 
 use Response;
 

@@ -2,9 +2,9 @@
 
 namespace Andens\Http\Controllers;
 
-use Andens\User;
-use Andens\Photo;
-use Andens\Comment;
+use Andens\Models\User;
+use Andens\Models\Photo;
+use Andens\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Andens\Http\Requests\PhotoStoreRequest;
@@ -81,7 +81,7 @@ class PhotoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \Andens\Photo $photo
+     * @param \Andens\Models\Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function edit(Photo $photo)
@@ -93,7 +93,7 @@ class PhotoController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Andens\Photo               $photo
+     * @param \Andens\Models\Photo               $photo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Photo $photo)
@@ -104,7 +104,7 @@ class PhotoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \Andens\Photo $photo
+     * @param \Andens\Models\Photo $photo
      * @return \Illuminate\Http\Response
      */
     public function destroy(Photo $photo)

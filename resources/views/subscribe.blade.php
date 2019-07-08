@@ -8,7 +8,7 @@
                 <h2>Subscribe. Only 10$ in month</h2>
                 <script src="https://js.stripe.com/v3/"></script>
 
-                <form action="/subscribe" method="POST">
+                <form action="{{ route('subscribe') }}" method="POST">
                     @csrf
                     <script
                             src="https://checkout.stripe.com/checkout.js" class="stripe-button"

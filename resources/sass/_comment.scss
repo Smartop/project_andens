@@ -1,4 +1,6 @@
+//noinspection CssUnknownTarget
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+//noinspection CssUnknownTarget
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
 
 $LATO: 'Lato',
@@ -116,7 +118,7 @@ body {
             border-bottom: 2px solid lighten($GREY, 15%);
 
             .replied_to {
-                margin: 5px 0px;
+                margin: 5px 0;
                 background-color: lighten($GREY, 18%);
                 border-bottom: 2px solid lighten($GREY, 15%);
                 border-radius: 5px;

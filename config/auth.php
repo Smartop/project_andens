@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Andens\User::class,
+            'model' => Andens\Models\User::class,
         ],
 
         // 'users' => [

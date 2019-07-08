@@ -4,7 +4,7 @@ namespace Andens\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Andens\Rating;
+use Andens\Models\Rating;
 
 class RatingController extends Controller
 {

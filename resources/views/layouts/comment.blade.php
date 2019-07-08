@@ -2,7 +2,7 @@
     <div>
         @auth
             <div class="d-flex">
-                <form action="/publishComment" method="POST">
+                <form action="{{ route('publishComment') }}" method="POST">
                     @csrf
                     <input type="hidden" name="photo_id" value="{{ $photo->id }}">
                     <div class="group-control">
@@ -48,7 +48,9 @@
                             @endif
                         </div><!-- the input field -->
                         <div class="input_comment">
-                            <input type="text" placeholder="Join the conversation..">
+                            <label>
+                                <input type="text" placeholder="Join the conversation..">
+                            </label>
                         </div>
 
                     </div>
@@ -87,13 +89,13 @@
                                 </ul>
                             </div>
                         </div>
-                    </ul>
-                </div>
 
+                    </ul>
+
+                </div>
 
             </div>
         @endforeach
-
 
     </div>
 </div>

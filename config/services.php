@@ -31,7 +31,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => Andens\User::class,
+        'model' => Andens\Models\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
         'webhook' => [

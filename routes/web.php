@@ -21,16 +21,16 @@ Route::get('/photo/{photo_id}', 'PhotoController@show');
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::POST('editProfile', 'ProfileController@update');
+    Route::POST('editProfile', 'ProfileController@update')->name('editProfile');
 
     Route::post('addphoto', 'PhotoController@store')->name('storeImage');
-    Route::post('publishComment', 'CommentController@publish');
-    Route::post('storeRating', 'RatingController@setRating');
+    Route::post('publishComment', 'CommentController@publish')->name('publishComment');
+    Route::post('storeRating', 'RatingController@setRating')->name('storeRating');
 
     Route::get('favor-status', 'FavoriteToggleController@status');
     Route::post('favorite', 'FavoriteToggleController@toggleFavorite');
 
     Route::get('subscribe', 'SubscribeController@showSubscribe');
-    Route::post('subscribe', 'SubscribeController@subscription');
+    Route::post('subscribe', 'SubscribeController@subscription')->name('subscribe');
 });
 

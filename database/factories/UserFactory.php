@@ -16,7 +16,7 @@ use Illuminate\Support\Str;
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-$factory->define(Andens\User::class, function (Faker $faker) {
+$factory->define(Andens\Models\User::class, function (Faker $faker) {
     return [
         'nickname' => $faker->unique()->userName,
         'real_name' => $faker->name,

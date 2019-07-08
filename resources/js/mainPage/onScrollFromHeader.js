@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    var target = $('.gallery');
-    var winHeight = $(window).height();
-    var targetPos = winHeight + 20;
-    var scrollToElem = targetPos - winHeight;
+    let target = $('.gallery');
+    let winHeight = $(window).height();
+    let targetPos = winHeight + 20;
+    let scrollToElem = targetPos - winHeight;
     $(window).on('scroll', function () {
-        var winScrollTop = $(this).scrollTop();
+        let winScrollTop = $(this).scrollTop();
         if(winScrollTop > scrollToElem) {
               $(".scroll-icon").fadeOut("slow", function () {
                   // Animation complete.

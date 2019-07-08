@@ -1,6 +1,6 @@
 <?php
 
-namespace Andens;
+namespace Andens\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -38,17 +38,17 @@ class User extends Authenticatable
 
     public function comments()
     {
-        return $this->hasMany('Andens\Comment');
+        return $this->hasMany('Andens\Models\Comment');
     }
 
     public function stars()
     {
-        return $this->hasMany(Rating::class);
+        return $this->hasMany('Andens\Models\Rating');
     }
 
     public function photos()
     {
-        return $this->hasMany('Andens\Comment');
+        return $this->hasMany('Andens\Models\Comment');
     }
 
     /**

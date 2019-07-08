@@ -43,7 +43,7 @@ export default {
         });
     },
     favorToggle() {
-      if (this.fstatus == 0) {
+      if (this.fstatus === 0) {
         this.fstatus = 1;
         console.log(this.fstatus);
         return this.fstatus;

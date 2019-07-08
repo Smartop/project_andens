@@ -3,7 +3,7 @@
 namespace Andens\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Andens\Comment;
+use Andens\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller

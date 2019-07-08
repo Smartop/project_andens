@@ -1,5 +1,5 @@
 <h2>Choose your photo</h2>
-<form action="/addphoto" enctype="multipart/form-data" method="post">
+<form action="{{ route('storeImage') }}" enctype="multipart/form-data" method="post">
     @csrf
     <div class="form-group">
         <label for="title">Name</label>
@@ -30,6 +30,6 @@
         <input type="file" required name="image" id="image" class="form-control">
     </div>
 
-        <button type="submit" class="btn btn-success" value="Upload">Завантажити</button>
+    <button type="submit" class="btn btn-success" value="Upload">Завантажити</button>
 
 </form>

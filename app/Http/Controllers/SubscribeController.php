@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Stripe\Stripe;
 
 use Illuminate\Support\Facades\Auth;
-use Andens\User;
+use Andens\Models\User;
 
 class SubscribeController extends Controller
 {
