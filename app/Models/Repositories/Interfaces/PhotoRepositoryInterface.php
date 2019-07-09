@@ -7,7 +7,9 @@ use Andens\Models\User;
 
 interface PhotoRepositoryInterface
 {
-    public function all();
+    public function paginateAll();
 
-    public function getByUser(User $user);
+    public function findById($id);
+
+    public function store($request);
 }

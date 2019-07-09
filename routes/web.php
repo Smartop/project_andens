@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', 'PhotoController@galleryShow');
+Route::get('/', 'PhotoController@index');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('user/{nick}', 'PhotoController@index')->name('userPage');
+Route::get('user/{nickname}', 'ProfileController@index')->name('userPage');
 Route::get('/photo/{photo_id}', 'PhotoController@show');
 
 Route::group(['middleware' => 'auth'], function () {

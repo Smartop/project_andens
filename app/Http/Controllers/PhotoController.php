@@ -2,39 +2,52 @@
 
 namespace Andens\Http\Controllers;
 
+use Andens\Http\Requests\PhotoStoreRequest;
 use Andens\Models\User;
 use Andens\Models\Photo;
 use Andens\Models\Comment;
+use Andens\Services\CommentService;
+use Andens\Services\PhotoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Andens\Http\Requests\PhotoStoreRequest;
 use phpDocumentor\Reflection\Types\Integer;
 
 class PhotoController extends Controller
 {
+    protected $photoService;
+    protected $commentService;
+
+    public function __construct(PhotoService $photoService,
+                                CommentService $commentService)
+    {
+        $this->photoService = $photoService;
+        $this->commentService = $commentService;
+    }
+
     /**
      * Display a listing of user`s photos.
      *
-     * @var $nick
      * @return \Illuminate\Http\Response
+     * @var $nick
      */
-    public function index($nick)
+    /*public function index($nick)
     {
         $user = User::where('nickname', "$nick")->first();
         $user_id = $user->id;
-        $photos = Photo::where('user_id', $user_id)->paginate(5);
+//        $photos = Photo::where('user_id', $user_id)->paginate(5);
+        $photos = $this->photoService->index();
 
         return view('profile.index', compact('user', 'photos'));
-    }
+    }*/
 
     /**
      * Display last photos
      *
      * @return \Illuminate\Http\Response
      */
-    public function galleryShow()
+    public function index()
     {
-        $photos = Photo::orderBy('created_at')->paginate(3);
+        $photos = $this->photoService->index();
 
         return view('gallery', compact('photos'));
     }
@@ -57,8 +70,8 @@ class PhotoController extends Controller
      */
     public function store(PhotoStoreRequest $request)
     {
-        $photo = Photo::add($request->all());
-        $photo->uploadImage($request->file('image'));
+        $photo = $this->photoService->store($request);
+//        $photo->uploadImage($request->file('image'));
 
         return redirect()->back();
     }
@@ -71,9 +84,8 @@ class PhotoController extends Controller
      */
     public function show($photo_id)
     {
-        $photo = Photo::findOrFail($photo_id)->first();
-        $id = $photo->id;
-        $comments = Comment::where('photo_id', $id)->get();
+        $photo = $this->photoService->show($photo_id);
+        $comments = $this->commentService->findWithUser($photo_id);
 
         return view('profile.photoView', compact('photo', 'comments'));
     }
@@ -93,7 +105,7 @@ class PhotoController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \Andens\Models\Photo               $photo
+     * @param \Andens\Models\Photo     $photo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Photo $photo)

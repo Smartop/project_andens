@@ -11,7 +11,7 @@ use Andens\Models\Favorite;
 class Photo extends Model
 {
 
-    protected $fillable = ['title', 'desc', 'category', 'camera'];
+    protected $fillable = ['title', 'desc', 'category', 'camera', 'file_name', 'user_id'];
 
     public function author()
     {
@@ -62,26 +62,26 @@ class Photo extends Model
     }
 
     /**
-     * Create new photo from fiels
+     * Create new photo from fields
      *
      * @param $fields
      * @return Photo
      */
-    public static function add($fields)
+    /*public static function store($fields)
     {
         $photo = new static;
         $photo->fill($fields);
         $photo->user_id = Auth::user()->id;
 
         return $photo;
-    }
+    }*/
 
     /**
      * Upload and save image
      *
      * @param $image
      */
-    public function uploadImage($image)
+    /*public function uploadImage($image)
     {
         if($image == null) { return; }
         //Storage::delete('uploads/' . $this->image);
@@ -89,7 +89,7 @@ class Photo extends Model
         $image->storeAs('public/img', $file_name);
         $this->file_name = $file_name;
         $this->save();
-    }
+    }*/
 
     /**
      * Get image source or default

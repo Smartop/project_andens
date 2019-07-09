@@ -21,6 +21,7 @@ $factory->define(Andens\Models\User::class, function (Faker $faker) {
         'nickname' => $faker->unique()->userName,
         'real_name' => $faker->name,
         'bio' => $faker->text,
+        'avatar' => $faker->imageUrl(250, 250, 'people', true, 'Faker'),
         'country' => $faker->city,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),

@@ -4,6 +4,7 @@ namespace Andens\Http\Controllers\Auth;
 
 use Andens\Models\User;
 use Andens\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
