@@ -20,4 +20,11 @@ class UserRepository implements UserRepositoryInterface
     {
         return $this->user->where('nickname', $nickname)->first();
     }
+
+    public function update($user_id, $attributes)
+    {
+        $user = $this->user->where('id', $user_id);
+
+        return $user->update($attributes);
+    }
 }

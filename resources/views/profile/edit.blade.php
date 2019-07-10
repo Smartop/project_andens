@@ -8,6 +8,7 @@
                 <div class="row justify-content-center">
                     <form method="POST" action="{{ route('editProfile') }}" enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
                         <div>
                             <div class="form-group row">
                                 <label for="nickname"
@@ -88,7 +89,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            {{--<div class="form-group row">
                                 <label for="password"
                                        class="col-md-4 col-form-label text-md-right">{{
                                     __('Password') }}</label>
@@ -104,9 +105,9 @@
                                     </span>
                                     @endif
                                 </div>
-                            </div>
+                            </div>--}}
 
-                            <div class="form-group row">
+                            {{--<div class="form-group row">
                                 <label for="password-confirm"
                                        class="col-md-4 col-form-label text-md-right">{{
                                     __('Confirm
@@ -117,7 +118,7 @@
                                            class="form-control" name="password_confirmation"
                                            required>
                                 </div>
-                            </div>
+                            </div>--}}
                             <div>
                                 <div class="form-group">
                                     <label for="avatar"></label>

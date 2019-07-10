@@ -3,6 +3,7 @@
 namespace Andens\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserProfileRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UserProfileRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,14 +24,15 @@ class UserProfileRequest extends FormRequest
      */
     public function rules()
     {
+        $id = Auth::id();
+
         return [
-            'nickname' => 'max:25|unique:users,nickname',
+            'nickname' => 'max:25|unique:users,nickname,'.$id,
             'real_name' => 'nullable|max:60',
             'bio' => 'nullable',
             'country' => 'required',
             'gender' => 'required',
-            'email' => 'email|unique:users,email',
-            'password' => 'min:6|confirmed',
+            'email' => 'email|unique:users,email,'.$id,
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
         ];
     }
