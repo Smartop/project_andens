@@ -23,10 +23,9 @@ class ProfileController extends Controller
 
     public function index($nickname)
     {
-//        $user = User::where('nickname', $nickname)->first();
         $user = $this->userService->index($nickname);
         $user_id = $user->id;
-        $photos = $this->photoService->index();
+        $photos = $this->photoService->getUserPhotos($user_id);
 
         return view('profile.index', compact('user', 'photos'));
     }

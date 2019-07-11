@@ -2,6 +2,7 @@
 
 namespace Andens\Http\Controllers;
 
+use Andens\Services\PhotoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Andens\Models\Favorite;
@@ -11,6 +12,18 @@ use Response;
 
 class FavoriteToggleController extends Controller
 {
+    protected $photoService;
+
+    /**
+     * FavoriteToggleController constructor
+     *
+     * @param PhotoService $photoService
+     */
+    public function __construct(PhotoService $photoService)
+    {
+        $this->photoService = $photoService;
+    }
+
     /**
      * Make photo`s favorite or cancel that
      *
@@ -19,19 +32,7 @@ class FavoriteToggleController extends Controller
      */
     public function toggleFavorite(Request $request)
     {
-        $user_id = Auth::id();
-        $favor = Favorite::updateOrCreate(
-            [
-                'user_id' => $user_id,
-                'photo_id' => $request->input('photo_id')
-            ],
-            [
-                'favor' => $request->input('favor'),
-                'user_id' => $user_id,
-                'photo_id' => $request->input('photo_id')
-            ]
-        );
-        $favor->save();
+        $this->photoService->toggleFavorite($request);
 
         return redirect()->back();
     }
@@ -44,12 +45,8 @@ class FavoriteToggleController extends Controller
      */
     public function status(Request $request)
     {
-        if (Auth::check()) {
-            $photo_id = $request->photo_id;
-            $photo = Photo::findOrFail($photo_id);
-            $fstatus = $photo->isFavorite($photo_id);
+        $fstatus = $this->photoService->favoriteStatus($request);
 
-            return response()->json($fstatus);
-        }
+        return response()->json($fstatus);
     }
 }

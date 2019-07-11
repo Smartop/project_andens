@@ -28,6 +28,7 @@ class RegisterController extends Controller
      * Where to redirect users after registration.
      *
      * @var string
+     * @return string
      */
     public function redirectTo(){
         $name = Auth::user()->nickname;

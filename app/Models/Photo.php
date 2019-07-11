@@ -62,36 +62,6 @@ class Photo extends Model
     }
 
     /**
-     * Create new photo from fields
-     *
-     * @param $fields
-     * @return Photo
-     */
-    /*public static function store($fields)
-    {
-        $photo = new static;
-        $photo->fill($fields);
-        $photo->user_id = Auth::user()->id;
-
-        return $photo;
-    }*/
-
-    /**
-     * Upload and save image
-     *
-     * @param $image
-     */
-    /*public function uploadImage($image)
-    {
-        if($image == null) { return; }
-        //Storage::delete('uploads/' . $this->image);
-        $file_name = Str::random(10).'.'. $image->extension();
-        $image->storeAs('public/img', $file_name);
-        $this->file_name = $file_name;
-        $this->save();
-    }*/
-
-    /**
      * Get image source or default
      *
      * @return string

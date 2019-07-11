@@ -25,22 +25,6 @@ class PhotoController extends Controller
     }
 
     /**
-     * Display a listing of user`s photos.
-     *
-     * @return \Illuminate\Http\Response
-     * @var $nick
-     */
-    /*public function index($nick)
-    {
-        $user = User::where('nickname', "$nick")->first();
-        $user_id = $user->id;
-//        $photos = Photo::where('user_id', $user_id)->paginate(5);
-        $photos = $this->photoService->index();
-
-        return view('profile.index', compact('user', 'photos'));
-    }*/
-
-    /**
      * Display last photos
      *
      * @return \Illuminate\Http\Response
@@ -53,16 +37,6 @@ class PhotoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage
      *
      * @param PhotoStoreRequest $request
@@ -71,7 +45,6 @@ class PhotoController extends Controller
     public function store(PhotoStoreRequest $request)
     {
         $photo = $this->photoService->store($request);
-//        $photo->uploadImage($request->file('image'));
 
         return redirect()->back();
     }
@@ -96,10 +69,10 @@ class PhotoController extends Controller
      * @param \Andens\Models\Photo $photo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photo $photo)
+    /*public function edit(Photo $photo)
     {
         //
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -108,10 +81,10 @@ class PhotoController extends Controller
      * @param \Andens\Models\Photo     $photo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Photo $photo)
+    /*public function update(Request $request, Photo $photo)
     {
         //
-    }
+    }*/
 
     /**
      * Remove the specified resource from storage.

@@ -17,6 +17,12 @@ class UserService
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * Get user by nickname
+     *
+     * @param $nickname
+     * @return UserRepository|\Illuminate\Database\Eloquent\Model|object|null
+     */
     public function index($nickname)
     {
         return $this->userRepository->findByNickname($nickname);
@@ -25,7 +31,8 @@ class UserService
     /**
      * Update user profile with avatar
      *
-     * @param UserProfileRequest $request
+     * @param $request
+     * @return int
      */
     public function update($request)
     {
@@ -51,10 +58,9 @@ class UserService
         if ($image == null) {
             return;
         }
-        // TODO create $this->avatar
-        /*if ($this->avatar != null) {
-            Storage::delete('img' . $this->avatar);
-        }*/
+        if ($image != null) {
+            Storage::delete('img' . $image);
+        }
         $filename = Str::random(10) . '.' . $image->extension();
         $image->storeAs('img', $filename);
 
