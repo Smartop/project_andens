@@ -120,10 +120,9 @@ class PhotoController extends Controller
     public function info(Request $request)
     {
         $photo_id = $request->photo_id;
-        $photo = Photo::where('id', $photo_id)->first(); //FIXME find not working
-        $comment_count = $photo->getCommentCountAttribute($photo_id);
-        $star_count = $photo->getStarCountAttribute($photo_id);
-        //dd($data);
+        $photo = $this->photoService->getPhoto($photo_id);
+        $comment_count = $this->commentService->getCount($photo);
+        $star_count = $this->photoService->starCount($photo);
 
         return response()->json([
             'photo' => $photo,
@@ -131,4 +130,5 @@ class PhotoController extends Controller
             'star_count' => $star_count,
         ]);
     }
+
 }

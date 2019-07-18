@@ -53,4 +53,19 @@ class PhotoRepository implements PhotoRepositoryInterface
         return $photo->favorite()->where('user_id', Auth::id())->first();
     }
 
+    public function getPhotoInfo($photo_id)
+    {
+        return Photo::whereId($photo_id)->first();
+    }
+
+    public function starCount($photo)
+    {
+        $sum   = $photo->stars->sum('rating_value');
+        $count = $photo->stars->count('rating_value');
+        if($count == 0) {
+            return "No rating";
+        }
+        return round($sum/$count, 1,1);
+    }
+
 }

@@ -24,4 +24,13 @@ class CommentRepository implements CommentRepositoryInterface
 
         return $comments;
     }
+
+    public function getCount($photo)
+    {
+        $count = $photo->comments->count('id');
+        if($count == 0) {
+            return "No comments";
+        }
+        return $count;
+    }
 }

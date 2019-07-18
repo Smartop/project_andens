@@ -17,4 +17,9 @@ class CommentService
     {
         return $this->commentRepository->findWithUser($photo_id);
     }
+
+    public function getCount($photo)
+    {
+        return $this->commentRepository->getCount($photo);
+    }
 }

@@ -109,4 +109,14 @@ class PhotoService
             }
         }
     }
+
+    public function getPhoto($id)
+    {
+        return $this->photoRepository->getPhotoInfo($id);
+    }
+
+    public function starCount($photo)
+    {
+        return $this->photoRepository->starCount($photo);
+    }
 }
